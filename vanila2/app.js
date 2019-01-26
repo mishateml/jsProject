@@ -1,27 +1,6 @@
 // listen for submit
 document.getElementById('loan-form').addEventListener('submit', calculateResults);
 
-function showError(msg) {
-    // get elements
-    const card = document.querySelector('.card');
-    const heading = document.querySelector('.heading');
-    // create error
-    const errorDiv = document.createElement('div');
-    // add class
-    errorDiv.className = 'alert alert-danger';
-    errorDiv.appendChild(document.createTextNode(msg));
-
-    // Insert error above heading
-    card.insertBefore(errorDiv,heading);
-
-    function clearError() {
-        document.querySelector('.alert').remove();
-    }
-
-    // Clear error after 3 seconds
-    setTimeout(clearError, 3000);
-}
-
 // calculate results
 function calculateResults(e) {
     console.log('Calculating');
@@ -51,7 +30,7 @@ function calculateResults(e) {
         totalPayment.value = (monthly*calculetedPayments).toFixed(2);
         totalInterest.value =((monthly*calculetedPayments)-principal).toFixed(2);
     }  else {
-    showError('please check your Numbers');
+        alert('something wrong!!!');
     }
 
 }
