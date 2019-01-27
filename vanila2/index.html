@@ -7,7 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <style>
+        #loading, #results{
+            display: none;
+        }
+    </style>
     <title>Lean App</title>
 </head>
 <body class="bg-dark">
@@ -43,6 +47,9 @@
                         <input type="submit" name="calculate" class="btn btn-dark btn-block" value="calculate">
                     </div>
                 </form>
+                <div id="loading">
+                    <img src="img/Loading_icon.gif" alt="">
+                </div>
 
                 <div id="results" class="pt-4">
                     <h5>Results</h5>
