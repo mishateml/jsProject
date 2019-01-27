@@ -1,0 +1,66 @@
+// Game values
+let min = 1,
+    max = 10,
+    winningNum =2,
+    guessesLeft = 3;
+
+//UI elements
+
+const game = document.getElementById('game'),
+      minNum = document.querySelector('.min-num'),
+      maxNum = document.querySelector('.max-num'),
+      guessBtn = document.querySelector('#guess-btn'),
+      guessInput = document.querySelector('#guess-input'),
+      message = document.querySelector('.message');
+
+// Assign UI min and max
+
+minNum.textContent = min;
+maxNum.textContent = max;
+
+function setMessage(msg, color) {
+    message.style.color = color;
+    message.textContent = msg;
+
+}
+
+// Listen for submit
+guessBtn.addEventListener('click', function (e) {
+    let guess = parseInt(guessInput.value);
+
+    // validate
+    if(isNaN(guess) || guess < min || guess > max){
+        setMessage(`Please enter number between ${min} and ${max}`, 'red');
+    }
+    // check if won
+    if (guess === winningNum) {
+        //disable input
+        guessInput.disabled = true;
+        // Change border color
+        guessInput.style.borderColor = 'green';
+        // set msg and color
+        setMessage(`${winningNum} is correct!!!`)
+        message.style.color = 'green';
+    }else {
+        // wrong number-> guess minus one
+        guessesLeft -= 1;
+        
+        if (guessesLeft === 0 ){
+            //disable input
+            guessInput.disabled = true;
+            // Change border color
+            guessInput.style.borderColor = 'red';
+            // set msg and color
+            setMessage(`You lost, Game Over. The winning number was: ${winningNum}`)
+            message.style.color = 'red';
+            // guessBtn.textContent = 'Try Again';
+        }else {
+            // user msg to move on and coloring to red
+            setMessage(`guess ${guess} was wrong you left ${guessesLeft} guesses`);
+            guessInput.style.borderColor = 'red';
+            // clear the input
+            guessInput.value = '';
+
+        }
+    }
+})
