@@ -9,7 +9,7 @@
     <!--css Skeleton-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
     <style>
-        .sucsess .error {
+        .sucsess , .error {
             color: white;
             padding: 5px;
             margin: 5px 0 15px 0;
@@ -38,6 +38,7 @@
         <div>
             <label for="isbn">ISBN</label>
             <input type="text"id="isbn" class="u-full-width">
+            <input type="submit"  value="Submit" class="u-full-width">
         </div>
 
         <table class="u-full-width">
@@ -49,7 +50,7 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody class="book--list"></tbody>
+            <tbody id="book--list"></tbody>
         </table>
 
 

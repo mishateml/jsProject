@@ -57,29 +57,14 @@ guessBtn.addEventListener('click', function (e) {
     // check if won
     if (guess === winningNum) {
         winLose(true, `${winningNum} is correct!!!`)
-        // //disable input
-        // guessInput.disabled = true;
-        // // Change border color
-        // guessInput.style.borderColor = 'green';
-        // // set msg and color
-        // setMessage(`${winningNum} is correct!!!`)
-        // message.style.color = 'green';
+
     }else {
         // wrong number-> guess minus one
         guessesLeft -= 1;
         
         if (guessesLeft === 0 ){
             winLose(false,`You lost, Game Over. The winning number was: ${winningNum}` )
-            // //disable input
-            // guessInput.disabled = true;
-            // // Change border color
-            // guessInput.style.borderColor = 'red';
-            // // set msg and color
-            // setMessage(`You lost, Game Over. The winning number was: ${winningNum}`)
-            // message.style.color = 'red';
-            // // guessBtn.textContent = 'Try Again';
-            // guessBtn.value = 'Play Again';
-            // guessBtn.className += 'play-again';
+
         }else {
             // user msg to move on and coloring to red
             setMessage(`guess ${guess} was wrong you left ${guessesLeft} guesses`);
