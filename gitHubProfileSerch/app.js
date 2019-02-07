@@ -13,14 +13,16 @@ serchUser.addEventListener('keyup', (e)=>{
             .then(data =>{
                 if (data.profile.message === 'Not Found'){
                  // Show Alert
-                    console.log('alert');
+                    ui.showAlert('User NOT exist', 'alert alert-danger');            
                 } else {
                  // Show Profile
                  ui.shoeProfile(data.profile);
+                 ui.showRepos(data.repos);
                 }
 
             })
     } else {
         // Clear input
+        ui.clearProfile();
     }
 });
